@@ -1,97 +1,13 @@
-Xadmin |Build Status|
+Xadmin-django3
 ============================================
 
-.. |Build Status| image:: https://travis-ci.org/sshwsfc/xadmin.png?branch=master
-   :target: https://travis-ci.org/sshwsfc/xadmin
-
-Drop-in replacement of Django admin comes with lots of goodies, fully extensible with plugin support, pretty UI based on Twitter Bootstrap.
-
-Live Demo
----------
-
-http://demo.xadmin.io
-
--  User: admin
--  Password: admin
-
-Features
---------
-
--  Drop-in replacement of Django admin
--  Twitter Bootstrap based UI with theme support
--  Extensible with plugin support
--  Better filter, date range, number range, etc.
--  Built-in data export with xls, csv, xml and json format
--  Dashboard page with widget support
--  In-site bookmarking
--  Full CRUD methods
-
-Screenshots
+说明
 -----------
+基于官方xadmin-django2 2.0.1版本，修复已知bug，在Python3.7 + Django3.0.3环境下运行通过。
 
-.. figure:: https://raw.github.com/sshwsfc/django-xadmin/docs-chinese/docs/images/plugins/action.png
-   :alt: Actions
-   
-.. figure:: https://raw.github.com/sshwsfc/django-xadmin/docs-chinese/docs/images/plugins/filter.png
-   :alt: Filter
+目前只修复了我碰到的问题，欢迎提issue以及讨论修改方法
 
-.. figure:: https://raw.github.com/sshwsfc/django-xadmin/docs-chinese/docs/images/plugins/chart.png
-   :alt: Chart
-
-.. figure:: https://raw.github.com/sshwsfc/django-xadmin/docs-chinese/docs/images/plugins/export.png
-   :alt: Export Data
-
-.. figure:: https://raw.github.com/sshwsfc/django-xadmin/docs-chinese/docs/images/plugins/editable.png
-   :alt: Edit inline
-
-Get Started
------------
-
-Install
-^^^^^^^
-
-Xadmin is best installed via PyPI. To install the latest version, run:
-
-.. code:: bash
-
-    pip install xadmin
-
-or Install from github source:
-
-.. code:: bash
-
-    pip install git+git://github.com/sshwsfc/xadmin.git
-
-Install from github source for Django 2.0:
-
-.. code:: bash
-
-    pip install https://codeload.github.com/sshwsfc/xadmin/zip/django2
-
-Install Requires 
-----------------
-
--  `django`_ >=2
-
--  `django-crispy-forms`_ >=1.6.0 (For xadmin crispy forms)
-
--  `django-reversion`_ ([OPTION] For object history and reversion feature, please select right version by your django, see `changelog`_ )
-
--  `django-formtools`_ ([OPTION] For wizward form)
-
--  `xlwt`_ ([OPTION] For export xls files)
-
--  `xlsxwriter`_ ([OPTION] For export xlsx files)
-
-.. _django: http://djangoproject.com
-.. _django-crispy-forms: http://django-crispy-forms.rtfd.org
-.. _django-reversion: https://github.com/etianen/django-reversion
-.. _changelog: https://github.com/etianen/django-reversion/blob/master/CHANGELOG.rst
-.. _django-formtools: https://github.com/django/django-formtools
-.. _xlwt: http://www.python-excel.org/
-.. _xlsxwriter: https://github.com/jmcnamara/XlsxWriter
-
-Documentation
+官方文档
 -------------
 
 -  English (coming soon)
@@ -99,51 +15,32 @@ Documentation
 
 .. _Chinese: https://xadmin.readthedocs.org/en/latest/index.html
 
-Changelogs
+
+目前已修复bug
 -------------
 
-0.6.0
-^^^^^
-- Compact with Django1.9.
-- Add Clock Picker widget for timepicker.
-- Fixed some userface errors.
+- ForeignKey未配置on_delete参数引起的错误
+- 模块包名称变更引发的错误:
+      django.core.urlresolvers => django.urls 
+      django.utils.six => six 
+      django.utils.encoding.python_2_unicode_compatible => future.utils.python_2_unicode_compatible
+      ...
+      等（记不清了）
+- "ManyToManyField" object has no attribute 'rel'错误
+- Exception: Relate Lookup field must a related field 错误
+- xadmin\views\website.py login和logout 函数及参数变更引发的错误
+- 国际化问题报异常：ImportError: cannot import name 'javascript_catalog' from 'django.views.i18n'
+      注：请在project\setting.py 的 INSTALLED_APPS中补充添加 'django.conf'
 
-0.5.0
-^^^^^
-    
-- Update fontawesome to 4.0.3
-- Update javascript files to compact fa icons new version
-- Update tests for the new instance method of the AdminSite class
-- Added demo graphs
-- Added quickfilter plugin.
-- Adding apps_icons with same logic of apps_label_title.
-- Add xlsxwriter for big data export.
-- Upgrade reversion models admin list page.
-- Fixed reverse many 2 many lookup giving FieldDoesNotExist error.
-- Fixed user permission check in inline model.
+- 异常 ‘DateTimeField‘ object has no attribute 'rel'
+- ModuleNotFoundError: No module named 'django.contrib.formtools' fromtools版本太低
+- ImportError: cannot import name 'QUERY_TERMS' from 'django.db.models.sql.query' 错误
+- ImportError: cannot import name 'password_reset_confirm' from 'django.contrib.auth.views' 错误
+- AttributeError: 'Settings' object has no attribute 'MIDDLEWARE_CLASSES'
+- TypeError: forms.Field.__init__() takes 1 positional argument but 6 were given
+- render() got an unexpected keyword argument 'renderer'
 
-`Detail`_
+- 还有些想不起来了...
 
-.. _Detail: ./changelog.md
 
-Online Group
-------------
-
--  QQ群 : 282936295
-
-Run Demo Locally
-----------------
-
-.. code:: bash
-
-    cd demo_app
-    ./manage.py migrate
-    ./manage.py runserver
-
-Open http://127.0.0.1:8000 in your browser, the admin user password is ``admin``
-
-Help
-----
-
-Help Translate : http://trans.xadmin.io
 
