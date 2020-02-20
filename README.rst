@@ -22,11 +22,11 @@ Xadmin-django3
 - ForeignKey未配置on_delete参数引起的错误
 
 - 模块包名称变更引发的错误:
-      --django.core.urlresolvers => django.urls 
-      --django.utils.six => six 
-      --django.utils.encoding.python_2_unicode_compatible => future.utils.python_2_unicode_compatible
-      --...
-      --等（记不清了）
+    * django.core.urlresolvers => django.urls
+    * django.utils.six => six
+    * django.utils.encoding.python_2_unicode_compatible => future.utils.python_2_unicode_compatible
+    * ...
+    * 等（记不清了）
       
 - "ManyToManyField" object has no attribute 'rel'错误
 
