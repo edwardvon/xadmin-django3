@@ -7,6 +7,38 @@ Xadmin-django3
 
 目前只修复了我碰到的问题，欢迎提issue以及讨论修改方法
 
+
+使用
+-------------
+- 请暂时不要使用setup.py进行安装（待修正）
+1.在django项目目录下建立extra_apps文件夹，将本仓库中xadmin文件夹拷贝到其中；
+
+2.在django项目的settting.py 添加extra_apps目录
+
+    import sys  
+    
+    ...  
+    
+    sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
+
+
+3.将'xadmin', 'crispy_forms', 'reversion', 'django.cong'添加到 INSTALLED_APPS:
+
+
+    INSTALLED_APPS = [
+    
+        ...
+        
+        'xadmin',
+        'crispy_forms',
+        'reversion',
+        'django.conf',
+        
+        ...
+        
+    ]
+
+
 官方文档
 -------------
 
@@ -18,6 +50,8 @@ Xadmin-django3
 
 目前已修复bug
 -------------
+- 2020/02/25更新：AttributeError: module 'xadmin' has no attribute 'site'; 解决方法：https://github.com/edwardvon/xadmin-django3/issues/1
+
 
 - ForeignKey未配置on_delete参数引起的错误
 
