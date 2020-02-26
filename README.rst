@@ -8,6 +8,18 @@ Xadmin-django3
 目前只修复了我碰到的问题，欢迎提issue以及讨论修改方法
 
 
+requirements
+-------------
+django==3.0.3
+django-crispy-forms==1.8.1
+django-import-export==2.0.2
+django-reversion==3.0.7
+django-formtools==2.2.0
+future==0.18.2
+httplib2==0.9.2
+six==1.14.0
+
+
 使用
 -------------
 - 请暂时不要使用setup.py进行安装（待修正）
