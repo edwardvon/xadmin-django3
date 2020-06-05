@@ -1,4 +1,4 @@
-django==3.0.3
+django==3.0.7
 django-crispy-forms==1.8.1
 django-import-export==2.0.2
 django-reversion==3.0.7
